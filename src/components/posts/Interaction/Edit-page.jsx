@@ -90,7 +90,7 @@ export default function EditpostForm({ postId, post, accessToken }) {
 
   useEffect(() => {
     return () => {
-      if (showImages1 && showImages1 !== '/images/defaultIMG.png') {
+      if (showImages1) {
         URL.revokeObjectURL(showImages1);
       }
     };
