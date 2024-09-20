@@ -88,6 +88,14 @@ export default function EditpostForm({ postId, post, accessToken }) {
     setShowImages1(imageUrls);
   };
 
+  useEffect(() => {
+    return () => {
+      if (showImages1 && showImages1 !== '/images/defaultIMG.png') {
+        URL.revokeObjectURL(showImages1);
+      }
+    };
+  }, [showImages1]);
+
   const handleCategorySelect = (e) => {
     setCategoryId(e.target.value);
   };

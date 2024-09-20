@@ -56,6 +56,15 @@ export default function SignupForm() {
     console.log(selectedImage);
   };
 
+  useEffect(() => {
+    // 컴포넌트가 언마운트되거나 showimage가 변경될 때 URL 해제
+    return () => {
+      if (showimage && showimage !== '/images/defaultIMG.png') {
+        URL.revokeObjectURL(showimage);
+      }
+    };
+  }, [showimage]);
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };

@@ -60,6 +60,14 @@ export default function TeacherSignupForm() {
     console.log(selectedImage);
   };
 
+  useEffect(() => {
+    return () => {
+      if (showimage && showimage !== '/images/defaultIMG.png') {
+        URL.revokeObjectURL(showimage);
+      }
+    };
+  }, [showimage]);
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };

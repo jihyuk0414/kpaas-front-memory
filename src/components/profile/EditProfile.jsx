@@ -54,6 +54,16 @@ export default function MyEditComponents({ accessToken, userInfo }) {
     console.log(imageUrl);
   };
 
+
+  useEffect(() => {
+    // Cleanup function to revoke object URL
+    return () => {
+      if (showimage && showimage !== '/images/defaultImg.jpg') {
+        URL.revokeObjectURL(showimage);
+      }
+    };
+  }, [showimage]);
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
